@@ -4,6 +4,7 @@ const logging = require('../router/user/logging');
 const getuserdetails = require('../router/user/getuserdetails');
 const updatepassword = require('../router/user/updateuser-password');
 const deleteuser = require('../router/user/deleteuser');
+const errors=require('../middleware/errors');
 
 module.exports = function (app) {
     app.use(express.json());
@@ -12,4 +13,5 @@ module.exports = function (app) {
     app.use('/api/user/getuserdetail', getuserdetails);
     app.use('/api/user/updatepassword', updatepassword);
     app.use('/api/user/deleteuser', deleteuser);
+    app.use(errors);
 }
